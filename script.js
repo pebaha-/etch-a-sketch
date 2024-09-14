@@ -8,7 +8,8 @@ function drawGrid(gridSize) {
         div.addEventListener('mouseenter', (event) => {
             div.classList.add("colored-div");
         });
-        div.textContent = i;
+        div.style.width = `${container.clientWidth / gridSize}px`;
+        div.style.height = `${container.clientWidth / gridSize}px`;
         container.appendChild(div);
     }
 }
