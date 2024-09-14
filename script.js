@@ -6,7 +6,7 @@ function drawGrid(gridSize) {
         let div = document.createElement("div");
         div.setAttribute("class", "grid-element")
         div.addEventListener('mouseenter', (event) => {
-            div.classList.add("colored-div");
+            div.style.backgroundColor = getRandomColor();
         });
         div.style.width = `${container.clientWidth / gridSize}px`;
         div.style.height = `${container.clientWidth / gridSize}px`;
@@ -28,6 +28,15 @@ function isInteger(value) {
         return true
     }
     return false;
+}
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 const button = document.querySelector("#inputBtn");
