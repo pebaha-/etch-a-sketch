@@ -1,0 +1,15 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-element {
+    border: 1px solid black;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 6%;
+}
+
+.colored-div {
+    background-color: chartreuse;
+}
