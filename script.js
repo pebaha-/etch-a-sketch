@@ -50,7 +50,7 @@ function updateRandomColor(div) {
     let alpha = parseFloat(currentRGBA.split(',')[3]);
 
     if (alpha < 1) {
-        alpha += 0.1;
+        alpha = Math.round((alpha + 0.1) * 10) / 10;
     } else {
         alpha = 1.0;
     }
