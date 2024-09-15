@@ -6,7 +6,7 @@ function drawGrid(gridSize) {
         let div = document.createElement("div");
         div.setAttribute("class", "grid-element")
         div.addEventListener('mouseenter', (event) => {
-            div.style.backgroundColor = getRandomColor();
+            div.style.backgroundColor = updateRandomColor(div);
         });
         div.style.width = `${container.clientWidth / gridSize}px`;
         div.style.height = `${container.clientWidth / gridSize}px`;
@@ -30,6 +30,7 @@ function isInteger(value) {
     return false;
 }
 
+/*
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -37,6 +38,22 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+}
+*/
+
+function updateRandomColor(div) {
+    const red = Math.floor(Math.random() * 255);
+    const green = Math.floor(Math.random() * 255);
+    const blue = Math.floor(Math.random() * 255);
+
+    const currentRGBA = window.getComputedStyle(div, null).backgroundColor;
+    let alpha = parseFloat(currentRGBA.split(',')[3]);
+
+    if (alpha < 1) {
+        alpha += 0.1;
+    }
+
+    return `rgb(${red}, ${green}, ${blue}, ${alpha})`;
 }
 
 const button = document.querySelector("#inputBtn");
