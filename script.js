@@ -51,6 +51,8 @@ function updateRandomColor(div) {
 
     if (alpha < 1) {
         alpha += 0.1;
+    } else {
+        alpha = 1.0;
     }
 
     return `rgb(${red}, ${green}, ${blue}, ${alpha})`;
